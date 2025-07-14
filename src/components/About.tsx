@@ -33,7 +33,7 @@ const About = () => {
           <div className="w-24 h-1 bg-primary-600 mx-auto rounded-full shadow-lg" />
         </motion.div>
 
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+<div className="grid grid-cols-1  gap-10 lg:gap-14 items-center">
           {/* Profile Image */}
          
 

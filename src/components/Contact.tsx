@@ -46,7 +46,7 @@ const Contact = () => {
       icon: MapPin,
       title: 'Location',
       value: 'Madurai, Tamil Nadu, India',
-      href: '# '
+      href: '#'
     }
   ];
 
