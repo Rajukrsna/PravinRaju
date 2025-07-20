@@ -10,6 +10,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import GitHubActivity from './components/GitHubActivity';
+import VoiceControl from './components/VoiceControl';
 
 function App() {
 
@@ -57,7 +58,7 @@ function App() {
           </motion.main>
           
           <Footer />
-       
+       <VoiceControl />
       </div>
     </Router>
   );
