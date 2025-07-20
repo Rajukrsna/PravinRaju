@@ -10,29 +10,16 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import GitHubActivity from './components/GitHubActivity';
-import GestureControls from './components/GestureControls';
-import { useGestureNavigation } from './hooks/useGestureNavigation';
 
 function App() {
-  const { handleSwipeLeft, handleSwipeRight, currentSection } = useGestureNavigation();
 
-  const handlePinch = (scale) => {
-    if (scale > 1.5) {
-      console.log('Zoom in detected');
-    } else if (scale < 0.8) {
-      console.log('Zoom out detected');
-    }
-  };
+ 
 
   return (
     <Router>
       <div className="min-h-screen bg-white">
         {/* Uncomment when gesture components are ready */}
-        <GestureControls
-          onSwipeLeft={handleSwipeLeft}
-          onSwipeRight={handleSwipeRight}
-          onPinch={handlePinch}
-        >
+     
           <Navbar />
           
           <motion.main
@@ -70,7 +57,7 @@ function App() {
           </motion.main>
           
           <Footer />
-        </GestureControls>
+       
       </div>
     </Router>
   );
