@@ -16,6 +16,7 @@ const Projects = () => {
       longDescription: 'Developed a secure seller verification system using AI and blockchain technology. The platform ensures tamper-proof consent through video verification and AI sentiment analysis, enhancing trust in online transactions.',
       description: 'A platform that ensures secure, transparent, and tamper-proof seller consent using video verification, AI sentiment analysis, and blockchain storage.',
       image: 'https://i.ibb.co/BH58PPnq/Seller-Dashboard.png',
+      videoUrl: 'dJxrhjwAT6I',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express.js', 'JWT', 'Material-UI','GCP-Vision API'],
       liveUrl: 'https://devpost.com/software/smart-verify-a-secure-online-seller-verification-portal',
       githubUrl: 'https://github.com/Rajukrsna/SmartVerify2.0',
@@ -26,7 +27,8 @@ const Projects = () => {
       title: 'StoryTime.AI',
       description: 'We envisioned Storytime AI as a platform where human imagination and AI co-write epic tales — enabling both solo and collaborative storytelling powered by artificial intelligence',
       longDescription: 'Storytelling has been the foundation of human connection, creativity, and education for centuries. Yet, many aspiring writers lack a collaborative space or creative prompts to kickstart their imagination. We envisioned Storytime AI as a platform where human imagination and AI co-write epic tales — enabling both solo and collaborative storytelling powered by artificial intelligence.',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: 'https://i.ibb.co/Jh8K0Lp/image1.png',
+      videoUrl: 'T7jHiYPwpMk',
       technologies: ['Next.js', 'Express.js', 'RAG', 'MongoDB-Atlas','MongoDB-VectorSearch' ,'Cloudinary', 'Tailwind CSS ', 'Gemini', 'TypeScript'],
       liveUrl: 'https://story-time-ai-2-o.vercel.app',
       githubUrl: 'https://github.com/Rajukrsna/StoryTimeAI-2.o',
@@ -35,9 +37,10 @@ const Projects = () => {
     {
       id: 3,
       title: 'FoodCultureMap - A Culinary Exploration App',
-      description: 'We aimed to combine semantic AI with vector search in MongoDB to unearth food stories that are not just historically accurate but contextually relevant to the user’s query.',
-      longDescription: 'FoodCultureMap is a culinary exploration app that uses semantic AI and vector search to connect users with authentic food stories and recipes from around the world. By leveraging MongoDB’s advanced search capabilities, we aimed to combine semantic AI with vector search to unearth food stories that are not just historically accurate but contextually relevant to the user’s query.',
+      description: 'We aimed to combine semantic AI with vector search in MongoDB to unearth food stories that are not just historically accurate but contextually relevant to the users query.',
+      longDescription: 'FoodCultureMap is a culinary exploration app that uses semantic AI and vector search to connect users with authentic food stories and recipes from around the world. By leveraging MongoDBs advanced search capabilities, we aimed to combine semantic AI with vector search to unearth food stories that are not just historically accurate but contextually relevant to the users query.',
       image: 'https://i.ibb.co/Y7L1ZJRP/gallery-1.jpg',
+      videoUrl: 'eoEL4JHPLdc',
       technologies: ['React', 'TypeScript', 'MongoDB-Vector Search', 'RAG(Retrieval Augment Generation)', 'Tailwind','JWT'],
       liveUrl: 'https://frontend-app-575377833580.asia-south1.run.app/login',
       githubUrl: 'https://github.com/Rajukrsna/FoodCultureMap',
@@ -47,9 +50,10 @@ const Projects = () => {
       id: 4,
       title: 'GlobeTrotter.ai - A Travel Planning Assistant',
       description: 'Globetrotter AI is your personal AI-powered travel planner that uses semantic search and RAG (Retrieval Augmented Generation) to craft bespoke itineraries based on your unique taste profile.',
-      longDescription: 'Simply tell us what you love – like “I love BTS, Studio Ghibli, and ramen” – and we will create a personalized travel experience with interactive 3D map visualizations',
+      longDescription: 'Simply tell us what you love – like "I love BTS, Studio Ghibli, and ramen" – and we will create a personalized travel experience with interactive 3D map visualizations',
       image: 'https://i.ibb.co/vvBgDjKS/gallery.jpg',
-      technologies: ['Node.js', 'Express', 'MongoDB', 'gemini',, 'Tailwind CSS', 'TypeScript', 'RAG(Retrieval Augment Generation)'],
+      videoUrl: 'tbqXbJZbzD0',
+      technologies: ['Node.js', 'Express', 'MongoDB', 'gemini', 'Tailwind CSS', 'TypeScript', 'RAG(Retrieval Augment Generation)'],
       liveUrl: 'https://globtrotter-ai.vercel.app/',
       githubUrl: 'https://github.com/Rajukrsna/GlobtrotterAI',
       category: 'Backend'
@@ -60,8 +64,9 @@ const Projects = () => {
       description: 'CosmoPT is a web app that makes space learning fun, hands-on, and immersive through simulations, missions, and interactive labs.',
       longDescription: 'As space enthusiasts, we noticed a lack of truly interactive, engaging, and gamified educational platforms that make space learning fun, hands-on, and immersive. We envisioned a web app that not only teaches users about the cosmos but lets them explore it through simulations, missions, and interactive labs—just like astronauts or space scientists. This led to the creation of CosmoPT: a powerful blend of education, gamification, and interactivity.',
       image: 'https://i.ibb.co/dsPbMHNQ/gallery-3.jpg',
+      videoUrl: 'c_1qQywAJTs',
       technologies: ['React', 'Express.js', 'Tailwind CSS', 'Vite','MongoDB'],
-      liveUrl: 'https://devpost.com/software/cosmopt',
+      liveUrl: 'https://cosmo-pt.vercel.app',
       githubUrl: 'https://github.com/Rajukrsna/CosmoPT',
       category: 'Frontend'
     },
@@ -71,6 +76,7 @@ const Projects = () => {
       description: 'As students ourselves, we have experienced the challenges of learning complex subjects through traditional methods—often relying on rote memorization rather than true understanding. This website improves how students learn complex subjects like math, physics, and chemistry throughc.',
       longDescription: 'BrightMindsSTEM is designed to make learning STEM subjects (Science, technology, engineering, and math) both fun and effective. Their simulations for every STEM subject in our labs. these experiment allows students to engage with real-world applications and understand complex topics. To further enhance engagement, the platform includes a gamification system, where students earn experience points (XP) as they complete activities. As they progress, they can achieve different ranks, such as Bronze, Silver, and Gold, which serve as motivation to continue learning.',
       image: 'https://i.ibb.co/Dgf76L0n/gallery-2.jpg',
+      videoUrl: '5-40bS-zVqQ',
       technologies: ['React', 'D3.js', 'matter-js', 'RESTFUL-API', 'Node.js', 'Express.js', 'MongoDB', 'Material-UI'],
       liveUrl: 'https://stem-edu.vercel.app',
       githubUrl: 'https://github.com/Rajukrsna/StemEdu',
@@ -223,14 +229,20 @@ const Projects = () => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <div className="relative">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.title}
-                    className="w-full h-64 object-cover"
-                  />
+                  {/* YouTube Video Embed */}
+                  <div className="w-full h-64 md:h-80">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${selectedProject.videoUrl}?autoplay=0&rel=0&modestbranding=1`}
+                      title={selectedProject.title}
+                      className="w-full h-full"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
                   <button
                     onClick={() => setSelectedProject(null)}
-                    className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors"
+                    className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors shadow-lg"
                   >
                     <X size={20} />
                   </button>

@@ -47,3 +47,33 @@
     @apply bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent;
   }
 }
+/* Add to your global CSS file or index.css */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.scrollbar-thumb-primary-300::-webkit-scrollbar-thumb {
+  background: #a5b4fc;
+}
+
+.scrollbar-thumb-primary-400::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}
+
+.scrollbar-track-secondary-100::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}

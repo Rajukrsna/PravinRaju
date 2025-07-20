@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Code2 } from 'lucide-react';
+import { Menu, X, Code2, Home, User, Briefcase, Wrench, FolderOpen, Mail } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,12 +16,12 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', icon: Home },
+    { name: 'About', href: '#about', icon: User },
+    { name: 'Experience', href: '#experience', icon: Briefcase },
+    { name: 'Skills', href: '#skills', icon: Wrench },
+    { name: 'Projects', href: '#projects', icon: FolderOpen },
+    { name: 'Contact', href: '#contact', icon: Mail },
   ];
 
   const scrollToSection = (href: string) => {
@@ -58,17 +58,21 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <motion.button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-secondary-700 hover:text-primary-600 font-medium transition-colors duration-200"
-              >
-                {item.name}
-              </motion.button>
-            ))}
+            {navItems.map((item) => {
+              const IconComponent = item.icon;
+              return (
+                <motion.button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center space-x-2 text-secondary-700 hover:text-primary-600 font-medium transition-colors duration-200"
+                >
+                  <IconComponent size={18} />
+                  <span>{item.name}</span>
+                </motion.button>
+              );
+            })}
           </div>
 
           {/* Mobile menu button */}
@@ -91,16 +95,20 @@ const Navbar = () => {
           className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md rounded-lg mt-2"
         >
           <div className="py-4 space-y-2">
-            {navItems.map((item) => (
-              <motion.button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                whileHover={{ x: 10 }}
-                className="block w-full text-left px-4 py-2 text-secondary-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200"
-              >
-                {item.name}
-              </motion.button>
-            ))}
+            {navItems.map((item) => {
+              const IconComponent = item.icon;
+              return (
+                <motion.button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  whileHover={{ x: 10 }}
+                  className="flex items-center space-x-3 w-full text-left px-4 py-2 text-secondary-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-200"
+                >
+                  <IconComponent size={18} />
+                  <span>{item.name}</span>
+                </motion.button>
+              );
+            })}
           </div>
         </motion.div>
       </div>
