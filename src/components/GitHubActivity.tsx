@@ -45,51 +45,78 @@ const GitHubActivity = () => {
   }, []);
 
   const fetchGitHubData = async () => {
-    try {
-      setLoading(true);
-      
-      // Fetch user data
-      const userResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
-      const userData = await userResponse.json();
-      
-      // Fetch repositories
-      const reposResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`);
-      const reposData = await reposResponse.json();
-      
-      // Fetch recent commits from top repos
-      const commitsPromises = reposData.slice(0, 3).map(repo => 
-        fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits?per_page=3`)
-          .then(res => res.json())
-          .then(commits => ({ repo: repo.name, commits }))
-          .catch(() => ({ repo: repo.name, commits: [] }))
-      );
-      
-      const commitsData = await Promise.all(commitsPromises);
-      const allCommits = commitsData.flatMap(({ repo, commits }) => 
-        commits.map(commit => ({ ...commit, repo }))
-      ).slice(0, 8);
-
-      // Calculate stats
-      const stats = {
-        totalRepos: userData.public_repos,
-        totalStars: reposData.reduce((sum, repo) => sum + repo.stargazers_count, 0),
-        totalCommits: allCommits.length,
-        followers: userData.followers
-      };
-
-      setGithubData({
-        user: userData,
-        repos: reposData,
-        commits: allCommits,
-        stats
-      });
-      
-      setLoading(false);
-    } catch (err) {
-      setError('Failed to fetch GitHub data');
-      setLoading(false);
+  try {
+    setLoading(true);
+    setError(null);
+    
+    console.log('Fetching GitHub data for:', GITHUB_USERNAME);
+    
+    // Fetch user data
+    const userResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+    console.log('User response status:', userResponse.status);
+    
+    if (!userResponse.ok) {
+      throw new Error(`GitHub API returned ${userResponse.status}: ${userResponse.statusText}`);
     }
-  };
+    
+    const userData = await userResponse.json();
+    console.log('User data:', userData);
+    
+    // Fetch repositories
+    const reposResponse = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`);
+    console.log('Repos response status:', reposResponse.status);
+    
+    if (!reposResponse.ok) {
+      throw new Error(`Repos API returned ${reposResponse.status}: ${reposResponse.statusText}`);
+    }
+    
+    const reposData = await reposResponse.json();
+    console.log('Repos data:', reposData);
+    
+    // Fetch recent commits from top repos (with better error handling)
+    const commitsPromises = reposData.slice(0, 3).map(async repo => {
+      try {
+        const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${repo.name}/commits?per_page=3`);
+        if (response.ok) {
+          const commits = await response.json();
+          return { repo: repo.name, commits };
+        } else {
+          console.warn(`Failed to fetch commits for ${repo.name}:`, response.status);
+          return { repo: repo.name, commits: [] };
+        }
+      } catch (err) {
+        console.warn(`Error fetching commits for ${repo.name}:`, err);
+        return { repo: repo.name, commits: [] };
+      }
+    });
+    
+    const commitsData = await Promise.all(commitsPromises);
+    const allCommits = commitsData.flatMap(({ repo, commits }) => 
+      commits.map(commit => ({ ...commit, repo }))
+    ).slice(0, 8);
+
+    // Calculate stats
+    const stats = {
+      totalRepos: userData.public_repos || 0,
+      totalStars: reposData.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0),
+      totalCommits: allCommits.length,
+      followers: userData.followers || 0
+    };
+
+    setGithubData({
+      user: userData,
+      repos: reposData,
+      commits: allCommits,
+      stats
+    });
+    
+    setLoading(false);
+  } catch (err) {
+    console.error('GitHub API Error:', err);
+    setError(`Failed to fetch GitHub data: ${err.message}`);
+    setLoading(false);
+  }
+};
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);

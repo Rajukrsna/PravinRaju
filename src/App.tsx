@@ -11,6 +11,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import GitHubActivity from './components/GitHubActivity';
 import VoiceControl from './components/VoiceControl';
+import { Analytics } from '@vercel/analytics/react'; // Add this import
 
 function App() {
 
@@ -59,6 +60,8 @@ function App() {
           
           <Footer />
        <VoiceControl />
+               <Analytics />
+
       </div>
     </Router>
   );

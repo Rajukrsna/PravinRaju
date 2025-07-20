@@ -20,6 +20,9 @@ const Navbar = () => {
     { name: 'About', href: '#about', icon: User },
     { name: 'Experience', href: '#experience', icon: Briefcase },
     { name: 'Skills', href: '#skills', icon: Wrench },
+    { name: 'GitHub Activity', href: '#github-activity', icon: Code2 },
+    { name: 'Projects', href: '#projects', icon: FolderOpen },
+    { name: 'Contact', href: '#contact', icon: Mail },
     { name: 'Projects', href: '#projects', icon: FolderOpen },
     { name: 'Contact', href: '#contact', icon: Mail },
   ];
