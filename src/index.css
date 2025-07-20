@@ -76,5 +76,27 @@
 
 .scrollbar-track-secondary-100::-webkit-scrollbar-track {
   background: #f1f5f9;
+}/* Add to your index.css */
+@layer utilities {
+  /* Z-Index layers for proper stacking */
+  .z-navbar {
+    z-index: 50;
+  }
+  
+  .z-voice-control {
+    z-index: 60;
+  }
+  
+  .z-modal {
+    z-index: 70;
+  }
+  
+  /* Ensure proper positioning on mobile */
+  @media (max-width: 768px) {
+    .fixed.bottom-4.right-4 {
+      bottom: 1rem !important;
+      right: 1rem !important;
+    }
+  }
 }
 

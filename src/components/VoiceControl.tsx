@@ -1,4 +1,3 @@
-// Create: src/components/VoiceControl.tsx
 import React, { useCallback, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mic, MicOff, Volume2, VolumeX, HelpCircle, X } from 'lucide-react';
@@ -70,7 +69,7 @@ const VoiceControl = () => {
       cmd.toLowerCase().includes(command.toLowerCase())
     );
 
-    if (matchedCommand && confidence > 0.7) {
+    if (matchedCommand && confidence > 0.5) { // Lowered confidence threshold
       commands[matchedCommand as keyof typeof commands]();
       setCommandFeedback(`✓ ${matchedCommand}`);
     } else {
@@ -90,7 +89,7 @@ const VoiceControl = () => {
   } = useVoiceControl({
     onCommand: handleVoiceCommand,
     continuous: true,
-    interimResults: false
+    interimResults: true // Changed to true for better responsiveness
   });
 
   // Clear transcript after processing
@@ -108,56 +107,64 @@ const VoiceControl = () => {
 
   return (
     <>
-      {/* Voice Control Button */}
+      {/* Voice Control Button - Fixed positioning with proper z-index */}
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
-        className="fixed bottom-4 right-4 z-50"
+        className="fixed bottom-4 right-4 z-[60] md:z-50" // Higher z-index for mobile
+        style={{ zIndex: 60 }} // Inline style as backup
       >
         <motion.button
           onClick={toggleListening}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className={`p-4 rounded-full shadow-lg transition-all duration-300 ${
+          className={`p-4 rounded-full shadow-xl transition-all duration-300 ${
             isListening
-              ? 'bg-red-500 text-white animate-pulse'
-              : 'bg-primary-600 text-white hover:bg-primary-700'
+              ? 'bg-red-500 text-white animate-pulse shadow-red-200'
+              : 'bg-primary-600 text-white hover:bg-primary-700 shadow-primary-200'
           }`}
           title={isListening ? 'Stop listening' : 'Start voice control'}
         >
           {isListening ? <MicOff className="w-6 h-6" /> : <Mic className="w-6 h-6" />}
         </motion.button>
 
-        {/* Help Button */}
+        {/* Help Button - Positioned better for mobile */}
         <motion.button
           onClick={() => setShowCommands(true)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
-          className="mt-2 p-3 rounded-full bg-primary-600 text-white hover:bg-primary-700 shadow-lg transition-all duration-300"
+          className="mt-2 p-3 rounded-full bg-primary-600 text-white hover:bg-primary-700 shadow-xl transition-all duration-300"
           title="Show voice commands"
+          style={{ zIndex: 60 }} // Ensure it's above other elements
         >
           <HelpCircle className="w-5 h-5 text-white" />
         </motion.button>
       </motion.div>
 
-      {/* Voice Status Indicator */}
+      {/* Voice Status Indicator - Better positioning */}
       <AnimatePresence>
         {(isListening || commandFeedback || error) && (
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
-            className="fixed bottom-20 right-4 z-50"
+            className="fixed bottom-24 right-4 z-[60] md:bottom-20"
+            style={{ zIndex: 60 }}
           >
-            <div className="bg-white rounded-lg shadow-xl p-4 max-w-sm">
+            <div className="bg-white rounded-lg shadow-xl p-4 max-w-sm border border-secondary-200">
               {isListening && (
                 <div className="flex items-center space-x-2 text-red-600">
                   <Volume2 className="w-4 h-4 animate-pulse" />
                   <span className="text-sm font-medium">Listening...</span>
+                  {transcript && (
+                    <div className="ml-2 text-xs text-secondary-500">
+                      "{transcript}"
+                    </div>
+                  )}
                 </div>
               )}
               
-              {commandFeedback && (
+              {commandFeedback && !isListening && (
                 <div className="flex items-center space-x-2 text-green-600">
                   <span className="text-sm">{commandFeedback}</span>
                 </div>
@@ -167,12 +174,6 @@ const VoiceControl = () => {
                 <div className="flex items-center space-x-2 text-red-600">
                   <VolumeX className="w-4 h-4" />
                   <span className="text-sm">Error: {error}</span>
-                </div>
-              )}
-
-              {transcript && (
-                <div className="mt-2 text-xs text-secondary-600">
-                  "{transcript}"
                 </div>
               )}
             </div>
@@ -187,7 +188,8 @@ const VoiceControl = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50"
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[70]"
+            style={{ zIndex: 70 }}
             onClick={() => setShowCommands(false)}
           >
             <motion.div
