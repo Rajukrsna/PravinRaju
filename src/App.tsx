@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import GitHubActivity from './components/GitHubActivity';
 import VoiceControl from './components/VoiceControl';
 import { Analytics } from '@vercel/analytics/react'; // Add this import
+import PersonalTouch from './components/PersonalTouch'; // Add this import
 
 function App() {
 
@@ -52,7 +53,12 @@ function App() {
             <section id="github-activity">
               <GitHubActivity />
             </section>
-            
+
+             {/* Add Personal Touch section */}
+          <section id="personal">
+            <PersonalTouch />
+          </section>
+          
             <section id="contact">
               <Contact />
             </section>
