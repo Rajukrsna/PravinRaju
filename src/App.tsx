@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
@@ -6,14 +6,15 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
-import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import GitHubActivity from './components/GitHubActivity';
 import VoiceControl from './components/VoiceControl';
-import { Analytics } from '@vercel/analytics/react'; // Add this import
-import PersonalTouch from './components/PersonalTouch'; // Add this import
+import LoadingSpinner from './components/LoadingSpinner';
 
+import { Analytics } from '@vercel/analytics/react'; // Add this import
+const Projects = React.lazy(() => import('./components/Projects'));
+const GitHubActivity = React.lazy(() => import('./components/GitHubActivity'));
+const PersonalTouch = React.lazy(() => import('./components/PersonalTouch'));
 function App() {
 
  
@@ -46,18 +47,11 @@ function App() {
               <Skills />
             </section>
             
-            <section id="projects">
-              <Projects />
-            </section>
-            
-            <section id="github-activity">
-              <GitHubActivity />
-            </section>
-
-             {/* Add Personal Touch section */}
-          <section id="personal">
-            <PersonalTouch />
-          </section>
+            <Suspense fallback={<LoadingSpinner />}>
+            <section id="projects"><Projects /></section>
+            <section id="github-activity"><GitHubActivity /></section>
+            <section id="personal"><PersonalTouch /></section>
+          </Suspense>
           
             <section id="contact">
               <Contact />
