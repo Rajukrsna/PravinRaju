@@ -1,0 +1,28 @@
+{
+  "name": "Pravin Raju T M - Portfolio",
+  "short_name": "Pravin Portfolio",
+  "description": "Full Stack Developer Portfolio - React, Node.js, TypeScript Expert",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon-16x16.svg",
+      "sizes": "16x16",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#4F46E5",
+  "background_color": "#FFFFFF",
+  "orientation": "portrait-primary"
+}
