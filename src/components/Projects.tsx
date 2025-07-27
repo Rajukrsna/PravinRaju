@@ -18,7 +18,7 @@ const Projects = () => {
       image: 'https://i.ibb.co/BH58PPnq/Seller-Dashboard.png',
       videoUrl: 'dJxrhjwAT6I',
       technologies: ['React', 'Node.js', 'MongoDB', 'Express.js', 'JWT', 'Material-UI','GCP-Vision API'],
-      liveUrl: 'https://devpost.com/software/smart-verify-a-secure-online-seller-verification-portal',
+      liveUrl: 'https://smart-verify2-0.vercel.app',
       githubUrl: 'https://github.com/Rajukrsna/SmartVerify2.0',
       category: 'Full Stack'
     },
