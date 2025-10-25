@@ -42,13 +42,27 @@ const [hasAnimated, setHasAnimated] = useState(false);
       title: 'Frontend Developer - Freelance',
       company: 'Outlier ',
       location: 'Remote',
-      period: 'June 2025 - Present',
+      period: 'June 2025 - July 2025',
       description: [
         'Reviewed and optimized AI-generated websites produced by Large Language Models (LLMs), enhancing visual design and user experience to meet Fortune 500-level UI/UX standards',
         'Rebuilt and customized frontend components using HTML, CSS, JavaScript, and modern frameworks (React.js and Next.js) to ensure responsive design, accessibility, and cross-browser compatibility',
         ' Conducted peer code reviews and usability audits, providing actionable feedback to contributors to maintain high-quality coding practices and design consistency'
       ],
       technologies: ['React.js', 'TailwindCSS', 'Next.js', 'Javascript', 'Typescript', 'HTML', 'CSS ']
+    }
+    ,
+    {
+      title: 'Full Stack Software Engineer',
+      company: 'Unplex Me',
+      location: 'Remote',
+      period: 'August 2025 - October 2025',
+      description: [
+        'Designed and scaled backend services on Azure Function Apps (Node.js) integrating MySQL, Redis, and Cosmos DB to ensure high availability.',
+        'Developed and optimized the 7Ronins web and mobile platforms, delivering responsive, user-centric interfaces using modern mobile-first techniques.',
+        'Engineered a Human–AI Co-Creation Platform enabling real-time collaboration between AI agents and users to generate complex visual concepts.',
+        'Architected the Fluid Framework with Server-Side Client (SSC) architecture to support scalable, low-latency real-time interactions.'
+      ],
+      technologies: ['Node.js', 'Azure Functions', 'MySQL', 'Redis', 'Cosmos DB', 'Fluid Framework', 'Real-time']
     }
   ];
 
